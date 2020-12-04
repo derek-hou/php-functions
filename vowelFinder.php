@@ -8,39 +8,39 @@
  */ 
 class VowelFinder
 {   
-    public $rtn;
 
     public function findVowels($string) {
         $temp = $string;
         $rtn = "";
 
         for($i = 0; $i < strlen($temp); $i++) {
-            if(strlen($temp) > 1 && $i == 0 && (substr($temp, $i, $i+1) == "Y" || substr($temp, $i, $i+1) == "y")) {
-                // do nothing
-            } elseif(substr($temp, $i, $i+1) == "A" || substr($temp, $i, $i+1) == "a") {
-                $rtn = $rtn . substr($temp, $i, $i+1);
-            } elseif(substr($temp, $i, $i+1) == "E" || substr($temp, $i, $i+1) == "e") {
-                $rtn = $rtn . substr($temp, $i, $i+1); 
-            } elseif(substr($temp, $i, $i+1) == "I" || substr($temp, $i, $i+1) == "i") {
-                $rtn = $rtn . substr($temp, $i, $i+1); 
-            } elseif(substr($temp, $i, $i+1) == "O" || substr($temp, $i, $i+1) == "o") {
-                $rtn = $rtn . substr($temp, $i, $i+1); 
-            } elseif(substr($temp, $i, $i+1) == "U" || substr($temp, $i, $i+1) == "u") {
-                $rtn = $rtn . substr($temp, $i, $i+1); 
-            } elseif(substr($temp, $i, $i+1) == "Y" || substr($temp, $i, $i+1) == "y") {
-                $rtn = $rtn . substr($temp, $i, $i+1);
+            if(substr($temp, $i, 1) == "A" || substr($temp, $i, 1) == "a") {
+                $rtn = $rtn . substr($temp, $i, 1);
+            } elseif(substr($temp, $i, 1) == "E" || substr($temp, $i, 1) == "e") {
+                $rtn = $rtn . substr($temp, $i, 1); 
+            } elseif(substr($temp, $i, 1) == "I" || substr($temp, $i, 1) == "i") {
+                $rtn = $rtn . substr($temp, $i, 1); 
+            } elseif(substr($temp, $i, 1) == "O" || substr($temp, $i, 1) == "o") {
+                $rtn = $rtn . substr($temp, $i, 1); 
+            } elseif(substr($temp, $i, 1) == "U" || substr($temp, $i, 1) == "u") {
+                $rtn = $rtn . substr($temp, $i, 1); 
+            } elseif(substr($temp, $i, 1) == "Y" || substr($temp, $i, 1) == "y") {
+                if(strlen($temp) == 1) {
+                    $rtn = $rtn . substr($temp, $i, 1);
+                } elseif($i != 0 && strlen($temp) > 1) {
+                    $rtn = $rtn . substr($temp, $i, 1);
+                }
             }
+            //echo substr($temp, $i, 1);
+            //echo $i . PHP_EOL;
         }
+        
+        echo $rtn . PHP_EOL;
 
         return $rtn;
-    }
-
-    public function toString($rtn) {
-        return (string)$rtn;
     }
 }
 
 $vf = new VowelFinder();
-$strVF = $vf->toString($vf->findVowels("y"));
-echo $strVF;
+$vf->findVowels("Testing");
 ?>
