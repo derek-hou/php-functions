@@ -13,6 +13,7 @@ class VowelFinder
         $temp = $string;
         $rtn = "";
 
+        // use for loop and check for vowels
         for($i = 0; $i < strlen($temp); $i++) {
             if(substr($temp, $i, 1) == "A" || substr($temp, $i, 1) == "a") {
                 $rtn = $rtn . substr($temp, $i, 1);
@@ -25,14 +26,12 @@ class VowelFinder
             } elseif(substr($temp, $i, 1) == "U" || substr($temp, $i, 1) == "u") {
                 $rtn = $rtn . substr($temp, $i, 1); 
             } elseif(substr($temp, $i, 1) == "Y" || substr($temp, $i, 1) == "y") {
-                if(strlen($temp) == 1) {
+                if(strlen($temp) == 1) {    // if string length is equal to 1, then vowel
                     $rtn = $rtn . substr($temp, $i, 1);
-                } elseif($i != 0 && strlen($temp) > 1) {
+                } elseif($i != 0 && strlen($temp) > 1) {    // if string length is greater than 1 and not the first character, then vowel
                     $rtn = $rtn . substr($temp, $i, 1);
                 }
             }
-            //echo substr($temp, $i, 1);
-            //echo $i . PHP_EOL;
         }
         
         echo $rtn . PHP_EOL;

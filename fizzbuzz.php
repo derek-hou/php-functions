@@ -5,14 +5,6 @@
  * For multiples of three it prints 'Fizz' instead of the number
  * For multiples of five it prints 'Buzz' instead of the number
  * But, for numbers which are multiples of both three and five, it only prints 'FizzBuzz'
- * 
- * Solution:
- *  Move the condition $i % 3 == 0 && $i % 5 == 0 to the first check as this is more specific
- *  Fixed variable calling syntax from i to $i
- *  Fixed the for loop conditional to be less or equal to 100
- *  Added PHP_EOL for readability
- *  Added new FizzBuzz object and call to fizzbuzz method
- *  Added ?> to close tag
  */
 class FizzBuzz {
     public function fizzbuzz() {
